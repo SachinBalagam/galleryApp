@@ -1,3 +1,7 @@
+import {Component} from 'react'
+import './index.css'
+import ThumbnailItem from '../ThumbnailItem/index'
+
 const imagesList = [
   {
     id: 0,
@@ -70,3 +74,36 @@ const imagesList = [
 ]
 
 // Write your code here.
+class Gallery extends Component {
+  state = {
+    ActiveImage: imagesList[0].imageUrl,
+    ActiveImgAltText: imagesList[0].imageAltText,
+  }
+
+  onUpdateImage = (image, text) => {
+    this.setState({ActiveImage: image, ActiveImgAltText: text})
+  }
+
+  render() {
+    const {ActiveImage, ActiveImgAltText} = this.state
+    return (
+      <div className="bg-container">
+        <img src={ActiveImage} alt={ActiveImgAltText} className="main-image" />
+        <h1>Nature Photography</h1>
+        <p>Nature Photography by Rahul</p>
+        <ul className="thumbnail-container">
+          {imagesList.map(each => (
+            <ThumbnailItem
+              key={each.id}
+              imagesList={each}
+              onUpdateImage={this.onUpdateImage}
+              isActive={each.imageUrl === ActiveImage}
+            />
+          ))}
+        </ul>
+      </div>
+    )
+  }
+}
+
+export default Gallery

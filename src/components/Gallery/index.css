@@ -1,1 +1,12 @@
 /* Write your code here. */
+.bg-container {
+  min-height: 100vh;
+  padding: 30px;
+}
+.thumbnail-container {
+  display: flex;
+  padding: 0px;
+}
+.main-image {
+  width: 800px;
+}

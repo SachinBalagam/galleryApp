@@ -1,1 +1,13 @@
 /* Write your code here. */
+.each-thumbnail {
+  list-style-type: none;
+  margin-right: 10px;
+}
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.blur {
+  opacity: 0.5;
+}
